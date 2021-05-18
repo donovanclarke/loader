@@ -8,21 +8,24 @@ export const App = () => {
 
   const handleLoading = (loading) => {
     setLoading(loading);
-    setPercentage(10);
   }
-
+  useEffect(() => {
+    setPercentage(5)
+  }, []);
   useEffect(() => {
     let interval = null;
 
+    interval = setInterval(() => {
+      setPercentage(percents => percents + 5)
+    }, 1000);
+
     if (!isLoading) {
-      interval = setInterval(() => {
-        setPercentage(percents => percents + 10)
-      }, 1000);
+      clearInterval(interval);
     }
 
-    if (percentage === 110) {
+    if (percentage === 105) {
       clearInterval(interval);
-      setPercentage(10);
+      setPercentage(5);
     }
 
     return () => clearInterval(interval);

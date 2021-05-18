@@ -8,21 +8,20 @@ svg.spinner {
   width: $spinnerSize + px;
   height: $spinnerSize + px;
 
-  &.loading .progress-ring {
+  .progress-move {
     fill: transparent;
     stroke: $brandColor;
     stroke-linecap: round;
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
-    animation: spinner-loading 4s linear infinite;
+    transition: stroke-dashoffset 0.1s linear;
+    animation: spinner-loading 2s cubic-bezier(0.15, 0.39, 0.64, 0.41) infinite;
   }
 
-  .progress-ring {
+  .progress-loading {
     fill: transparent;
     stroke: $brandColor;
     stroke-linecap: round;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
   }
 
   .progress {
@@ -33,14 +32,10 @@ svg.spinner {
 }
 
 @keyframes spinner-loading {
-  0% {
-    stroke-dashoffset: (3.0 * $spinnerSize);
+  from {
     transform: rotate(0deg);
-  } 50% {
-    stroke-dashoffset: (3.0 * $spinnerSize);
-    transform: rotate(540deg);
-  } 100% {
-    stroke-dashoffset: (3.0 * $spinnerSize);
-    transform: rotate(1080deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

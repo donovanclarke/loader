@@ -6,9 +6,7 @@ export const ProgressContent = ({
   percents
 }) => (
   <div className="progress-content-container" data-testid="percent-display">
-    {percents && (
-      <p>{percents}</p>
-    )}
+    <p>{percents}</p>
   </div>
 );
 

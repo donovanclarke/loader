@@ -13,10 +13,4 @@ describe("<ProgressContent />", () => {
     expect(content).toBeInTheDocument();
     expect(container).not.toBeEmptyDOMElement();
   })
-
-  it("should not render content or p element", () => {
-    render(<ProgressContent />);
-    const content = screen.getByTestId("percent-display");
-    expect(content).toBeEmptyDOMElement();
-  })
 })

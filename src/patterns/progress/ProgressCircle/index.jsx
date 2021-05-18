@@ -10,7 +10,7 @@ export const ProgressCircle = ({
     loading
   }) => (
     <div className="progress-circle-container">
-      <ProgressContent percents={loading ? null : percentage} />
+      <ProgressContent percents={percentage} />
       <ProgressChart percents={percentage} loading={loading} />
     </div>
   );

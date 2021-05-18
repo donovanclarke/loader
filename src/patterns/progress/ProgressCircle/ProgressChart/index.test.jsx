@@ -10,13 +10,6 @@ describe("<ProgressChart />", () => {
     expect(loader).toBeInTheDocument();
   });
 
-  it("should render in default loading state", () => {
-      render(<ProgressChart />);
-      const loader = screen.getByTitle("loader");
-
-      expect(loader).toHaveClass("loading");
-  });
-
   // other tests to consider are no loading state.
   // if a percentage is passed is the calculation correct.
   describe("calculations", () => {
