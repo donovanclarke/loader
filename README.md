@@ -19,52 +19,15 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Thoughts on "progress spinner"
+Hi! 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I hope that this finds you well! Your assessment asked to re-create a progress spinner as a reusable component.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1) If i were tasked with building this as a re-usable component, I would be given specs from design on how this should look, and react. I just wanted to let you know I did this by eyeballing, and uploading a few files via your app :). (A gif or screen recording would have been awesome!). 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2) You may be looking at the architecture of how I laid out my components. Let me explain :)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `patterns` would contain many re-usable components within an application. 
+- Inside of `patterns` lives the folder `progress`, my thoughts on this would be that if we have a progress spinner, we are more then likely to have a "progress bar", etc. This would help house these components in a similar location. 
+- Once you dive a little deeper `patterns/progress/ProgressCircle` you will see that this is where our "progress spinner" would live. I have broken it out into two sub-components to handle the spinner portion and content seperately. My thoughts on this, is these components do not rely on each other. This can help with testing, also maintanence on them in the future. Usually a component should do "one" thing, this helps make them less prone to bugs.

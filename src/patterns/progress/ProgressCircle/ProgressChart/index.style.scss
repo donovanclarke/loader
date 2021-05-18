@@ -1,0 +1,46 @@
+//spinnerSize based off circumfrence
+$spinnerSize: 200;
+$brandColor: #409fff;
+$baseNeutralLight: #d6d6d6;
+$baseNeutralDark: #484a4d;
+
+svg.spinner {
+  width: $spinnerSize + px;
+  height: $spinnerSize + px;
+
+  &.loading .progress-ring {
+    fill: transparent;
+    stroke: $brandColor;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    animation: spinner-loading 4s linear infinite;
+  }
+
+  .progress-ring {
+    fill: transparent;
+    stroke: $brandColor;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  .progress {
+    fill: transparent;
+    stroke: $baseNeutralLight;
+    stroke-linecap: round;
+  }
+}
+
+@keyframes spinner-loading {
+  0% {
+    stroke-dashoffset: (3.0 * $spinnerSize);
+    transform: rotate(0deg);
+  } 50% {
+    stroke-dashoffset: (3.0 * $spinnerSize);
+    transform: rotate(540deg);
+  } 100% {
+    stroke-dashoffset: (3.0 * $spinnerSize);
+    transform: rotate(1080deg);
+  }
+}

@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import { useState, useEffect } from "react";
+import ProgressCircle from "./patterns/progress/ProgressCircle";
 import './App.css';
 
-function App() {
+export const App = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [percentage, setPercentage] = useState(0);
+
+  const handleLoading = (loading) => {
+    setLoading(loading);
+    setPercentage(10);
+  }
+
+  useEffect(() => {
+    let interval = null;
+
+    if (!isLoading) {
+      interval = setInterval(() => {
+        setPercentage(percents => percents + 10)
+      }, 1000);
+    }
+
+    if (percentage === 110) {
+      clearInterval(interval);
+      setPercentage(10);
+    }
+
+    return () => clearInterval(interval);
+  }, [isLoading, percentage]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <ProgressCircle percentage={percentage} loading={isLoading} />
+      <div>
+        <button onClick={() => handleLoading(true)}>Start</button>
+        <button onClick={() => handleLoading(false)}>End</button>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
