@@ -8,7 +8,7 @@ svg.spinner {
   width: $spinnerSize + px;
   height: $spinnerSize + px;
 
-  .progress-move {
+  .progress-animation {
     fill: transparent;
     stroke: $brandColor;
     stroke-linecap: round;
@@ -16,12 +16,6 @@ svg.spinner {
     transform-origin: 50% 50%;
     transition: stroke-dashoffset 0.1s linear;
     animation: spinner-loading 2s cubic-bezier(0.15, 0.39, 0.64, 0.41) infinite;
-  }
-
-  .progress-loading {
-    fill: transparent;
-    stroke: $brandColor;
-    stroke-linecap: round;
   }
 
   .progress {

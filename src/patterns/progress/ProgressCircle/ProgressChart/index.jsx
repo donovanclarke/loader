@@ -27,20 +27,7 @@ export const ProgressChart = ({
 }) => {
   const { radius, normalizedRadius, circumference } = calculateShapes();
   const { progressOffset } = calculateOffset(circumference, percents);
-  
-  const renderCircle = className => (
-    <circle
-      cx={radius}
-      cy={radius}
-      r={normalizedRadius}
-      strokeWidth={10}
-      style={{
-        strokeDashoffset: progressOffset,
-        strokeDasharray: `${circumference} ${circumference}`
-      }}
-      className={className}
-    />
-  );
+
   return (
     <svg className="spinner" title="loader">
       <circle
@@ -51,11 +38,18 @@ export const ProgressChart = ({
         strokeDasharray={`${circumference} ${circumference}`}
         className="progress"
       />
-      {!loading ? (
-        renderCircle("progress-loading")
-      ): (
-        renderCircle("progress-move")
-      )}
+      <circle
+      cx={radius}
+      cy={radius}
+      r={normalizedRadius}
+      strokeWidth={10}
+      style={{
+        strokeDashoffset: progressOffset,
+        strokeDasharray: `${circumference} ${circumference}`,
+        animationPlayState: `${loading ? ("running") : ("paused")}`
+      }}
+      className={"progress-animation"}
+    />
     </svg>
   );
 };
