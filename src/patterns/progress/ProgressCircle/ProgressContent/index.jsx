@@ -4,15 +4,13 @@ import "./index.style.scss";
 
 export const ProgressContent = ({
   percents
-}) => {
-  return (
-    <div className="progress-content-container" data-testid="percent-display">
-      {percents && (
-        <p>{percents}</p>
-      )}
-    </div>
-  );
-};
+}) => (
+  <div className="progress-content-container" data-testid="percent-display">
+    {percents && (
+      <p>{percents}</p>
+    )}
+  </div>
+);
 
 ProgressContent.propTypes = {
   percents: PropTypes.number

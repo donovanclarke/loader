@@ -8,14 +8,12 @@ import "./index.style.scss";
 export const ProgressCircle = ({
     percentage,
     loading
-  }) => {
-    return (
-      <div className="progress-circle-container">
-        <ProgressContent percents={loading ? null : percentage} />
-        <ProgressChart percents={percentage} loading={loading} />
-      </div>
-    );
-  };
+  }) => (
+    <div className="progress-circle-container">
+      <ProgressContent percents={loading ? null : percentage} />
+      <ProgressChart percents={percentage} loading={loading} />
+    </div>
+  );
   
   ProgressCircle.propTypes = {
     percentage: PropTypes.number
