@@ -13,8 +13,9 @@
 
   p::after {
     content: "%";
-    position: relative;
-    top: -20px;
+    position: absolute;
+    top: 70px;
+    right: 30px;
     font-size: 30px;
     font-weight: 500;
     color: $baseNeutralLight;
